@@ -1,0 +1,231 @@
+\documentclass{amsart}
+\usepackage{graphicx}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{mathrsfs}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{subfigure}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% Para tablas:
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% Para incluir números de línea que faciliten la revisión
+\usepackage{lineno}
+\linenumbers
+
+% Para hipervínculos:
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=magenta,
+    filecolor=magenta,      
+    urlcolor=black,
+    pdftitle={Reforestation Logistic Transport Optimization},
+    pdfpagemode=FullScreen,
+    citecolor = blue
+    }
+\urlstyle{same}
+\usepackage[english]{babel}
+\usepackage[babel]{csquotes}
+\usepackage[backend=biber, style=apa]{biblatex}
+\DeclareLanguageMapping{english}{english-apa}
+\bibliography{Sources/referencias.bib}
+
+\newenvironment{Figura}
+{\par\medskip\noindent\minipage{\linewidth}}
+{\endminipage\par\medskip}
+
+\begin{document}
+
+% ------------------------------- PORTADA -----------------------------
+\begin{center}
+    %{\bfseries\LARGE Instituto Tecnológico de Monterrey\par}
+    %\vspace{0.5cm}
+    %{\scshape\Large Escuela de Ingeniería y Ciencias\par}
+    \vspace{0.5cm}
+    %{\scshape\Huge Digital Signature\par}
+    {\scshape\Huge Firma Digital\par}
+    \vspace{0.5cm}
+
+    \begin{tabular}{cc}
+        \begin{tabular}[c]{@{}c@{}}Ricardo Kaleb Flores Alfonso\\ A01198716\end{tabular} &
+        \begin{tabular}[c]{@{}c@{}}José de Jesús Ramírez Mendieta\\ A00835680\end{tabular} \\
+        \begin{tabular}[c]{@{}c@{}}Ana Karen Márquez\\ A01028413\end{tabular} &
+        \begin{tabular}[c]{@{}c@{}}Génesis Pereyra Camacho\\ AXXXXXXXX\end{tabular} \\
+        \begin{tabular}[c]{@{}c@{}}Natalia Olvera Ortiz\\ A01285367\end{tabular} &
+    \end{tabular}
+    
+    \vspace{1cm}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.5\linewidth]{Sources/tecnologico-de-monterrey-blue.png}
+        \label{fig:LogoTec}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.5\linewidth]{Sources/Logo-Monarca.png}
+        \label{fig:LogoCasaMonarca}
+    \end{figure}
+
+    \vspace{1cm}
+
+    \begin{tabular}{ccc}
+        Luis Miguel Méndez Díaz & Daniel Otero Fadul & Raúl Gómez Muñoz
+    \end{tabular}
+    
+    \vspace{0.3cm}
+    {\small \today}
+    \vspace{0.5cm}
+    
+    \rule{16.5cm}{0.1pt}
+\end{center}
+%--------------INDICE---------------
+
+% -----------------------------Resumen---------------------------------
+\section{Abstract}
+The present work aims to improve the security of the documents emited by an organization which helps inmigrants in Mexico. By developing a digital signature system that identifies each document as unique and can't be manipulated without knowledge from all the responsibles. Given that the forgery of those documents can compromise the opportunities and security of the inmigrants, while reducing the trust between the organization and inmigrants. This system has been developed considering the resource limits that this type of organization have, also the compatibility with Azure components was taken into account. 
+\section{Resumen}
+Este trabajo busca mejorar la seguridad de los documentos emitidos por una organización que brinda apoyo a migrantes en Mexico. A traves del desarrollo de un sistema de firma digital que identifique cada documento como unico y no pueda ser manipulado sin el conocimiento de los responsables. Esta necesidad surge debido a que la falsificación de dichos documentos pueden comprometer las oportunidades y seguridad de los migrantes asi como reducir la confianza de estos mismos hacia la organización. Para la herramienta desarrollada fue importante tomar en cuenta el limite de recursos que suelen tener las organizaciones, asi como la compatibilidad con los componentes de Azure.
+
+    
+
+
+% -----------------------------Introduccion---------------------------------
+
+    \section{Introducción}
+    %Brief background, literature review, research contribution, objective
+        En los ultimos años, la seguridad de la información se ha convertido en un pilar fundamental para el mundo como lo conocemos. Desde mensajes encriptados por el internet, hasta transferencias de dinero de manera segura e instantanea desde el telefono. Esto ha generado un desarrollo especializado en la ciberseguridad que permite autenticar de manera rapida a los usuarios. La criptografia se vuelve esencial para garantizar dicha seguridad en los sistemas, la cual proporciona confidencialidad e integridad en los intercambios de información.
+        Estos dos puntos se vuelve relevantes en el contexto de la migración, donde las organizaciones emiten documentos clave, como certificados de identidad, tramites internos y cartas de reconocimiento, que deben de ser protegidos contra falsificaciones y fraudes. Debido a esto se desarolla un mecanismo de firma digital que garatice la autenticidad de los documentos, apoya a los inmigrantes pues les permite asegurar la validez de dichos 
+
+        
+
+
+
+% --------------------------- Marco Teorico ---------------------------------
+
+\section{Marco Referencial}
+    \subsection{Marco Teórico}
+    
+    A lo largo de la vida, el humano ha tenido necesidad de ocultar mensajes y guardar secretos. Sin embargo, en los últimos años esta necesidad se ha visto urgente especialmente en el ambito tecnólogico debido a la gran digitalización que estamos teniendo. "la criptografía tiene como objetivo permitir que dos personas puedan intercambiarse información de forma confidencial y segura mediante un canal inseguro (Hernández, 2016)." Entonces, a través de métodos como la transposición, la sustitución o el cifrado, se logra transformar el texto original en un texto oculto. Actualmente, la criptografía se utiliza para más que solo ocultar mensajes, podemos ver sus aplicaciones en cifrados de datos y en firmas electrónicas (Hernández, 2016). 
+    Uno de los sistemas utilizados es el esquema híbrido, el cual a través de criptosistemas asimértricos y simétricos, envía mensajes cifrados entre dos usuarios con una clave cifrada con una clave pública. Además, existen las funciones de resumen (hash). Estas funciones criptográficas permiten comprobar la integridad de los datos, más allá de cifrar un mensaje. A través de un resumen, estas funciones convierten los mensajes a un valor con una longitud fija (Hernández, 2016).
+    
+    •	Algoritmos Criptográficos: 
+            RSA:
+            ECDSA: Elliptic Curve Digital Signature Algorithm (ECDSA) 
+            elSHA-256
+    
+    •	Protocolos criptográficos y estándares relevantes.
+            X.509: Importancia en la infraestructura de clave pública (PKI) para la gestión de certificados digitales.
+            PKCS#7
+            eIDAS: establece requisitos para la validación de firmas digitales dentro de la UE.
+            FIPS 140-2: 
+            
+    • Aspectos legales y éticos de las firmas digitales.
+
+
+    En el contexto de Python, existen varias librerías que apoyan la creación de algortimos criptográficos para la protección de datos. Una de estas librerías es cryptography, la cual es útil para la tanto para encriptaciones de alto nivel como interfaces de un nivel más bajo. Esta librería permite la cifrados simétricos, resúmen de mensajes y funciones de derivación de claves. Cryptography se divide en 2 niveles: fácil y primitivos criptográficos. El primer nivel es muy fácil de manejar y no requieren una configuración extensa. En cambio, el segundo nivel suele contener criptográficos peligrosos y que requieren de un mayor conocimiento de criptografía para la toma de decisiones (Welcome to pyca/cryptography, 2025).
+	Por otro lado, también existe la librería PyCryptodome, la cual es eficaz en en algoritmos y funciones criptográficas. Dentro de esta librería podemos encontrar operaciones como encriptación, decriptación, hashing y la verificación de firmas. Para nuestro proyecto, esta librería es de gran útilidad ya que brinda firmas digitales y las verifica a través de algoritmos RSA y DSA (GeeksforGeeks, 2024). De este modo, se cuida la autentidad e integridad de los mensajes, o en nuestro caso, de los documentos. 
+
+    \subsection{Marco Contextual}
+    El panorama mundial de la migración es complejo. Con los crecientes conflictos geopolíticos y las recientes acciones tomadas por el gobierno de los Estados Unidos de América, el flujo migratorio en México se ha convertido en un tema social que requiere soluciones en materia de seguridad, protección de derechos y acceso a recursos básicos. Cada año, miles de migrantes dependen de refugios y ayuda humanitaria para continuar su trayecto. Sin embargo, la gestión documental en estos espacios suele ser un proceso manual y poco seguro, lo que puede comprometer la autenticidad y privacidad de la información.
+
+
+    Casa Monarca, un refugio ubicado en el municipio de Santa Catarina, Nuevo León, es una de las muchas organizaciones que enfrentan esta problemática. Sin un sistema de firma electrónica eficiente, los procesos pueden volverse burocráticos, susceptibles a pérdidas o manipulaciones, y representar un riesgo para la protección de los datos de los beneficiarios.
+
+
+    A través de esta iniciativa, se busca demostrar el enfoque humano de la ciberseguridad, beneficiando a un grupo en condición de vulnerabilidad y promoviendo el uso responsable y seguro de la tecnología en favor de la protección de datos.
+        
+    \subsubsection{Estado del Arte}
+    
+    
+   \textbf{ 4.2.1.1. Sistemas de Firma Digital en Contextos Migratorios }
+    
+    El tema de la migración se ha vuelto un área importante para la digitalización de procesos, lo que permite mejorar la gestión de documentación y la seguridad de la información. El uso de tecnologías digitales en los procesos migratorios ha sido analizado por diferentes organizaciones internacionales.
+    La Red en Defensa de los Derechos Digitales (R3D) resalta que la digitalización en estos contextos ofrece oportunidades, pero también plantea desafíos de seguridad y privacidad para los migrantes y sus defensores (R3D, 2023). Así mismo, Access Now enfatiza la necesidad de implementar medidas de protección de datos para resguardar la información de los migrantes en América Latina (Access Now, 2023).
+    El Gobierno de Perú ha avanzado en la digitalización de sus servicios consulares para mejorar la atención a sus ciudadanos en el extranjero. Una de las iniciativas destacadas es la implementación del Documento Nacional de Identidad Electrónico (DNIe) en el exterior. Este documento incorpora altos estándares de seguridad y permite a los peruanos residentes fuera del país acceder a servicios consulares de manera eficiente. Los planes piloto se han llevado a acabo en ciudades como Buenos Aires, Miami y Roma. Además, se ha proporcionado firma digital a todos los cónsules para facilitar la realización de servicios y actividades digitales, como la apostilla electrónica y el envío de actas electorales. (cita)
+    Paraguay ha adoptado medidas importantes para modernizar su gestión migratoria. En 2015, implementó el Sistema Interconectado de Registro e Identificación de Personas y el Sistema de Información y Análisis de Datos sobre la Migración (PIRS/MIDAS), diseñados para la Organización Internacional para las Migraciones (OIM). Este sistema biométrico de control migratorio y fronterizo ha sido implementado en varios puestos de control del país desde 2016, mejorando la capacidad de registro y control de movimientos migratorios. (cita).
+    
+    
+    \textbf{ 4.2.1.2. Tecnologías Utilizadas en Firmas Digitales }
+    
+    La criptografía de curva elíptica (ECC) es una técnica criptográfica que utiliza las propiedades de las curvas elípticas para crear sistemas de cifrado más eficientes y seguros. Una implementación notable de ECC es EdDSA (Edwards-curve Digital Signature Algorithm), que ofrece firmas digitales de alta seguridad y rendimiento.
+    Ed25519 es una variante popular de EdDSA que utiliza la curva Curve25519 y el hash SHA-512, proporcionando una resistencia comparable a cifrados simétricos de 128 bits. Además, EdDSA está diseñado para ser resistente a ataques de canal lateral, ya que no utiliza operaciones que dependan de datos secretos, lo que mejora su seguridad en implementaciones prácticas.
+    Herramientas Utilizadas en la Práctica (NaCl/libsodium, OpenSSL):
+        •	NaCl/libsodium: NaCl (Networking and Cryptography Library) es una biblioteca de criptografía diseñada para facilitar la implementación de operaciones criptográficas seguras. Libsodium es bifurcación de NaCl que mejora su protabilidad y usabilidad, proporcionando una amplia gama de funciones criptográficas, incluyendo soporte para ECC y Ed25519.
+        •	OpenSSL: Es una biblioteca de software robusta y de uso general que implementa los protocolos SSL y TLS, así como una variedad de funciones criptográficas. OpenSSL ha incorporado soporte para algoritmos de curva elíptica, incluyendo Ed25519, a partir de su versión 1.1.1, permitiendo a los desarrolladores implementar firmas digitales seguras en sus aplicaciones.
+    
+        
+    \textbf{ 4.2.1.3. Seguridad en Sistemas de Firma Digital y Ataques de Canal Lateral }
+    
+    Uno de los mayores riesgos en la implementación de sistemas de firma digital son los ataques de canal lateral (SCA). Estos ataques aprovechan información secundaria, como el consumo de energía o el tiempo de ejecución de un algoritmo, para extraer claves privadas o información sensible.
+    El Instituto de Tecnologías Físicas y de la Información (ITEFI) del CSIC ha estudiado cómo los ataques de canal lateral afectan la seguridad del algoritmo AES, proporcionando contramedidas efectivas (ITEFI-CSIC, 2023). Así también, un estudio de la Universidad Politécnica de Madrid examina la vulnerabilidad de las curvas elípticas frente ataques de tiempo y plantea soluciones para mitigar estos riesgos (UPM, 2023).
+    Otra investigación publicada en ResearchGate analiza los ataques de canal lateral en implementaciones criptográficas y resalta diferentes contramedidas, como el enmascaramiento de datos y la introducción de ruido aleatorio en cálculos (ResearchGate, 2023).
+    
+    
+    \textbf{ 4.2.1.5. Estudios de Caso en la Implementación de la Firma Digital }
+    
+    
+    \textit{ Implementación de la Firma Electrónica en el sector bancario de Venezuela. }
+    
+    En Venezuela, la banca electrónica ha integrado la firma digital como una herramienta esencial para garantizar la autenticidad, confidencialidad e integridad de las transacciones electrónicas. A través de sistemas de certificación electrónica los bancos han permitido a los usuarios realizar operaciones seguras, fortaleciendo la confianza en el ciberespacio (Redalyc, 2023).
+    La adopción de la firma digital en la banca ha traído consigo importantes beneficios. En primer lugar, la autenticidad de las transacciones está garantizada, lo que reduce considerablemente el riesgo de fraudes financieros. Así también, la confidencialidad de la información se ve reforzada mediante el uso de sistemas de encriptación que protegen los datos sensibles de los clientes. Además, la integridad de la información es asegurada, evitando modificaciones o alteraciones durante la transmisión de datos.
+    A pesar de estos avances, la implementación de la firma digital en el sector bancario venezolano enfrenta grandes desafíos. La necesidad de mantener una infraestructura tecnológica robusta y en constante actualización es uno de los principales retos. Igualmente, se refiere una capacitación continua tanto para el personal bancario como para los usuarios, con el fin de garantizar el uso adecuado y seguro de estas herramientas digitales.
+
+    
+    \textit{ Gobierno Electrónico en México: Implementación de la Firma Electrónica. }
+    
+    México ha avanzado en la digitalización de su administración pública, incorporando la firma electrónica en diversos servicios gubernamentales. Este mecanismo ha permitido mejorar la eficiencia y la transparencia en la gestión pública, facilitando a los ciudadanos la realización de trámites en línea y reduciendo los tiempos y costos al uso de documentos físicos (Redalyc, 2023).
+    Entre los principales beneficios de la firma digital en el gobierno electrónico destacan la agilización de los procesos administrativos, la reducción de la burocracia y una mayor transparencia en las operaciones gubernamentales. Además, la accesibilidad a los servicios públicos se ha incrementado considerablemente, ya que los ciudadanos pueden realizar sus trámites desde cualquier lugar y en cualquier momento.
+    Sin embargo, aún existen desafíos que limitan su adopción. La brecha digital sigue siendo una barrera importante, ya que no todas las regiones del país cuentan con el acceso a tecnología necesario para utilizar estos servicios. Además, la infraestructura tecnológica debe seguir mejorándose para garantizar la disponibilidad y seguridad de los sistemas de firma digital en la administración pública (cita).
+
+
+
+    
+        
+            
+       
+
+% -------------------------------------- Metodologia --------------------------------------
+%Present the relative results, along indepth discussion to connect findings with enviromental imapacst and local governance
+    \section{Metodologia}
+        El plan de trabajo a seguir fue...
+        
+        
+
+
+    
+% -----------------------------Resultados---------------------------------
+    \section{Resultados}
+    %Limitations, conclusion and future work
+    La solucion desarrollada permitio.
+
+% -----------------------------Conclusiones---------------------------------
+    \section{Conclusiones}
+    %Limitations, conclusion and future work
+    Debido a esto podemos concluir...
+    
+    
+% -----------------------------Recomendaciones---------------------------------
+    \section{Recomendaciones}
+    %Limitations, conclusion and future work
+    Nosotros recomendamos...
+
+
+% -------------------------------------- REFERENCES --------------------------------------
+    %\vspace{1cm}
+    %\newpage
+    \section{References}
+    \printbibliography[title={References}, heading=none]
+
+    
+ \end{document}
